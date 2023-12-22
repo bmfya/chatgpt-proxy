@@ -7,7 +7,7 @@ const app = express();
 const PORT = 7860;
 const target = process.env.BASE_URL || 'https://api.openai.com'
 const keys = process.env.KEY_POOL?.split(',')
-const pass = process.env.KEY_PASS
+const pass = process.env.PASSWORD
 
 const apiProxy = createProxyMiddleware({
   target,
@@ -35,7 +35,7 @@ function getRandomItem(arr) {
 
 app.get("/", (req, res) => {
   res.json({
-    code: 200
+    success: true
   })
 });
 
